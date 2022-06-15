@@ -1,5 +1,5 @@
 # Crwn Shop
-
+- Pass the prop as an object and destructure it inside the child component
 # React Router V6
 - Set up a directory specifically for routes -- these are single-use components.
 
