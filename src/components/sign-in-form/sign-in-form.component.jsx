@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import { UserContext } from "../../contexts/user.context";
 
 import {
   createUserDocumentFromAuth,
@@ -20,6 +21,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const { setCurrentUser } = useContext(UserContext);
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
@@ -34,11 +36,12 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      // getting user object
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response)
+      setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -49,7 +52,7 @@ const SignInForm = () => {
           alert("No user associated with this email");
           break;
         default:
-          console.log("user sign in failed", error); 
+          console.log("user sign in failed", error);
           break;
       }
     }

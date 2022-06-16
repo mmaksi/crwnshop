@@ -1,6 +1,7 @@
 # Crwn Shop
 - Pass the prop as an object and destructure it inside the child component
 - By default all buttons are of type `submit` inside forms. To prevent a button inside a form from submitting, change the `type` prop to "button".
+- useContext causes the component function to be recalled if the value of the context has changed but not necessarily to be re-rendered. That occurs even if the context was initialized without using its values.
 
 # React Router V6
 - Set up a directory specifically for routes -- these are single-use components.
