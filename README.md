@@ -1,5 +1,7 @@
 # Crwn Shop
 - Pass the prop as an object and destructure it inside the child component
+- By default all buttons are of type `submit` inside forms. To prevent a button inside a form from submitting, change the `type` prop to "button".
+
 # React Router V6
 - Set up a directory specifically for routes -- these are single-use components.
 

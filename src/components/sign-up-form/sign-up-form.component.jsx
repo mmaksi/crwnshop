@@ -58,7 +58,7 @@ const SignUpForm = () => {
   return (
     <div className="sign-up-container">
       <h2>Don't have an account?</h2>
-      <span>Sign Up with your email and password</span>
+      <span>Register with your email and password</span>
       <form onSubmit={submitHandler}>
         <FormInput
           label="Display Name"
@@ -96,7 +96,7 @@ const SignUpForm = () => {
           onChange={changeHandler}
         />
 
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit">Register</Button>
       </form>
     </div>
   );
