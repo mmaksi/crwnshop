@@ -92,3 +92,6 @@ export const createUserDocumentFromAuth = async (
 - useContext causes the component function to be recalled if the value of the context has changed but not necessarily to be re-rendered. That occurs even if the context was initialized without using its values.
 
 ### Observer Pattern
+- Streams are a sequence of asynchronous events like clicks
+- Stream events emit 3 methods: next, error, complete
+- The `complete` mthod is called when the stram is finished
