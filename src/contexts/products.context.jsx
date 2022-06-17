@@ -1,8 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
-import { createContext } from "react";
-import { useState } from "react";
-import { onAuthStateChangedListener, createUserDocumentFromAuth } from "../utils/firebase/firebase.utils";
+import { createContext, useState } from "react";
 import PRODUCTS from "../shop-data.json"
 
 // Context storage
