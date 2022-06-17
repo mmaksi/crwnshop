@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { createContext, useState } from "react";
-import PRODUCTS from "../shop-data.json"
+import SHOP_DATA from "../shop-data.js"
+import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils.js";
 
 // Context storage
 export const ProductContext = createContext({
@@ -8,7 +10,12 @@ export const ProductContext = createContext({
 
 // Context provider - the actual wrapping component
 export const ProductProvider = ({children}) => {
-  const [products, setProducts] = useState(PRODUCTS);
+  const [products, setProducts] = useState([]);
+
+  // useEffect(() => {
+  //   addCollectionAndDocuments("categories", SHOP_DATA)
+  // }, [])
+
   const value = {
     products,
   };
