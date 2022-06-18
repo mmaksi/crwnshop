@@ -27,7 +27,7 @@ const App = () => {
 
     // runs whenever component unmounts
     return unsubscribe
-  }, [])
+  }, [dispatch])
 
   return (
     <Fragment>
