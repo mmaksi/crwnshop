@@ -21,7 +21,7 @@ const SignInForm = () => {
   const { email, password } = formFields;
 
   const signInWithGoogle = async () => {
-    // saving the user in the Firestore happens in the userContext
+    // saving the user in the Firestore happens in the userReducer
     await signInWithGooglePopup();
   };
 
