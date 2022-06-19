@@ -5,7 +5,6 @@ const selectCategoryReducer = (state) => state.categories;
 export const selectCategories = createSelector(
   [selectCategoryReducer],
   (categoriesSlice) => {
-    console.log(categoriesSlice);
     return categoriesSlice.categories;
   }
 );
@@ -17,3 +16,8 @@ export const selectCategoriesMap = createSelector([selectCategories],(categories
     return acc;
   }, {})
 );
+
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+)
