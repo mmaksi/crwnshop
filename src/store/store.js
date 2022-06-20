@@ -38,3 +38,6 @@ export const store = createStore(
 );
 
 export const persistor = persistStore(store);
+
+// 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
+// pk_live_51LCSujIQ6NhGaIocm0HXUhMlGiyXrrwrX05vd8sMvsWZYBCN0nZ5WkLzuTTC6WpuOONyhjmMC5Jk53wI5ogzW6uK00OLG6VwE0

@@ -21,8 +21,8 @@ const CategoriesPreview = () => {
         Object.keys(categoriesMap).map((title) => {
           const products = categoriesMap[title];
           return (
-            <Link to={`/shop/${title}`}>
-              <CategoryPreview key={title} title={title} products={products} />
+            <Link key={title} to={`/shop/${title}`}>
+              <CategoryPreview title={title} products={products} />
             </Link>
           );
         })
