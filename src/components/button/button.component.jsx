@@ -18,7 +18,7 @@ const Button = ({
       className={`button-container ${classes} ${BUTTON_TYPE_CLASSES[buttonType]}`}
       {...otherProps}
     >
-      { children}
+      {children}
     </button>
   );
 };
