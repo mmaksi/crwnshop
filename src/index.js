@@ -8,6 +8,7 @@ import { Elements } from "@stripe/react-stripe-js"
 import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
+import * as serviceWorker from "./serviceWorker" 
 
 import "./index.scss";
 
@@ -28,3 +29,5 @@ rootElement.render(
     </Provider>
   </React.StrictMode>
 );
+
+serviceWorker.register()
