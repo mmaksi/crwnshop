@@ -1,15 +1,21 @@
 .checkout-item-container {
   width: 100%;
   display: flex;
-  min-height: 100px;
+  flex-direction: row;
+  justify-content: space-between;
   border-bottom: 1px solid darkgrey;
-  padding: 15px 0;
+  padding: 1rem 0;
   font-size: 20px;
   align-items: center;
 
+  :nth-last-of-type(2), :nth-last-of-type(3), :nth-last-of-type(4) {
+    text-align: center;
+  }
+
   .image-container {
-    width: 23%;
-    margin-right: 15px;
+    width: 20%;
+    display: flex;
+    align-items: center;
 
     img {
       width: 100%;
@@ -19,12 +25,27 @@
 
   .name,
   .quantity,
-  .price {
-    width: 23.5%;
+  .price,
+  .remove-button {
+    width: 20%;
+    font-size: 1rem;
+    text-align: center;
+
+    @media screen and (max-width: 800px) {
+      font-size: 0.75rem;
+    }
+  }
+
+  .name {
+    @media screen and (max-width: 800px) {
+      padding: 0.5rem;
+    }
   }
 
   .quantity {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     .arrow {
       cursor: pointer;
@@ -36,73 +57,7 @@
   }
 
   .remove-button {
-    padding-left: 15px;
+    text-align: right;
     cursor: pointer;
-  }
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-    display: flex;
-    min-height: 70px;
-    border-bottom: 1px solid darkgrey;
-    padding: 10px 0;
-    font-size: 20px;
-    align-items: center;
-
-    .image-container {
-      width: 15%;
-      margin-right: 10px;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .name,
-    .quantity,
-    .price {
-      width: auto;
-    }
-
-    .name {
-      // margin-right: 10px;
-      margin: 0 15px 0 10px;
-    }
-
-    .price {
-      margin-left: 20px;
-    }
-
-    .quantity {
-      width: auto;
-    }
-
-    .quantity {
-      display: flex;
-
-      .arrow {
-        cursor: pointer;
-      }
-
-      .value {
-        margin: 0 10px;
-      }
-    }
-
-    .remove-button {
-      margin-left: auto;
-      cursor: pointer;
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    width: 100%;
-    display: flex;
-    min-height: 100px;
-    border-bottom: 1px solid darkgrey;
-    padding: 15px 0;
-    font-size: 20px;
-    align-items: center;
   }
 }
