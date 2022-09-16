@@ -25,7 +25,7 @@ const Checkout = () => {
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <span className="total">Total: ${cartTotal}</span>
-      {/* <PaymentForm /> */}
+      <PaymentForm />
     </div>
   );
 };
