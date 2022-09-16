@@ -1,6 +1,8 @@
-.categories-container {
+.directory-container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
 }
