@@ -17,6 +17,10 @@ This is an e-commerce React web app that handles user authentication with the ab
 ![crwn-shop](https://i.ibb.co/3TGtdcj/crwnshop.png)
 
 ## Notes
+## React Router
 - Parent route component renders on all nested routes.
 - Nested routes are rendered in the `Outlet` component.
 - To make a nested route renders with the parent route's component, use `index` property.
+
+## useContext Hook
+Any component that import `useContext` will make its function rerun whenever any value of the context changes even if that component doesn't use these actual values.

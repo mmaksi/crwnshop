@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   signInAuthUserWithEmailAndPassword,
@@ -19,14 +20,12 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const navigate = useNavigate()
 
   const signInWithGoogle = async () => {
     // saving the user in the Firestore happens in the userReducer
     await signInWithGooglePopup();
-  };
-
-  const resetFormFields = () => {
-    setFormFields(defaultFormFields);
+    navigate(window.location.pathname)
   };
 
   const submitHandler = async (event) => {
@@ -38,7 +37,7 @@ const SignInForm = () => {
         email,
         password
       );
-      resetFormFields();
+      navigate(window.location.pathname)
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":

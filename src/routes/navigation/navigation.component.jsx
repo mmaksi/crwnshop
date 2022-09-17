@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assets/crwn.svg";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
@@ -14,6 +14,13 @@ import "./navigation.styles.scss";
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const cartIsOpen = useSelector(selectCartIsOpen);
+  
+  const navigate = useNavigate()
+
+  const signOutHandler = () => {
+    signOutUser();
+    navigate("/")
+  }
 
   return (
     <Fragment>
@@ -28,11 +35,11 @@ const Navigation = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutUser}>
+            <span className="nav-link" onClick={signOutHandler}>
               SIGN OUT
             </span>
           ) : (
-            <Link className="nav-link" to="/auth">
+            <Link className="nav-link" to={"/auth"}>
               SIGN IN
             </Link>
           )}

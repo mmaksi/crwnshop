@@ -30,10 +30,6 @@
       text-transform: capitalize;
       width: 23%;
 
-      @media screen and (max-width: 800px) {
-        font-size: 0.75rem;
-      }
-
       &:last-child {
         text-align: right;
       }

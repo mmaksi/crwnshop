@@ -6,13 +6,16 @@ import {
   selectCartItems,
   selectCartTotal,
 } from "../../store/cart/cart.selector";
+import Authentication from "../authentication/authentication.component";
 import "./checkout.styles.scss";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+  const currentUser = useSelector(selectCurrentUser);
 
-  return (
+  const checkoutComponent = (
     <div className="checkout-container">
       <div className="checkout-header">
         <span className="header-block">Product</span>
@@ -27,6 +30,10 @@ const Checkout = () => {
       <span className="total">Total: ${cartTotal}</span>
       <PaymentForm />
     </div>
+  )
+
+  return (
+    currentUser ? checkoutComponent : <Authentication/>
   );
 };
 
