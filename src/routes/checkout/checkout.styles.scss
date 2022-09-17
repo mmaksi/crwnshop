@@ -1,5 +1,5 @@
 .checkout-container {
-  width: 55%;
+  width: 60%;
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -9,10 +9,6 @@
   @media screen and (max-width: 800px) {
     width: 90%;
     margin: 0 auto;
-
-    .total {
-      font-size: 30px;
-    }
   }
 
   .checkout-header {
@@ -22,7 +18,9 @@
     border-bottom: 1px solid darkgrey;
     padding-bottom: 1.5rem;
 
-    :nth-last-of-type(2), :nth-last-of-type(3), :nth-last-of-type(4) {
+    :nth-last-of-type(2),
+    :nth-last-of-type(3),
+    :nth-last-of-type(4) {
       text-align: center;
     }
 
@@ -40,9 +38,5 @@
     margin-top: 2rem;
     margin-left: auto;
     font-size: 2rem;
-
-    @media screen and (max-width: 800px) {
-      font-size: 1.5;
-    }
   }
 }

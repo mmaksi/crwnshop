@@ -100,7 +100,7 @@ const SignUpForm = () => {
           onChange={changeHandler}
         />
 
-        <Button type="submit" style={{ width: "47.5%" }}>Register</Button>
+        <Button type="submit" style={{ width: "calc(50% - 2.5%)" }}>Register</Button>
       </form>
     </div>
   );
