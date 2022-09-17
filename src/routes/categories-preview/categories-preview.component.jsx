@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import CategoryPreview from "../../components/category-preview/category-preview.component";
 import Authentication from "../authentication/authentication.component";
@@ -16,23 +15,20 @@ const CategoriesPreview = () => {
   const isLoading = useSelector(selectCategoriesIsLoading);
   const currentUser = useSelector(selectCurrentUser);
 
-  const categoriesPreviewComponent = (
-    Object.keys(categoriesMap).map((title) => {
-      const products = categoriesMap[title];
-      return (
-        <Link key={title} to={`/shop/${title}`}>
-          <CategoryPreview title={title} products={products} />
-        </Link>
-      );
-    })
-  )
+  const categoriesPreviewComponent = Object.keys(categoriesMap).map((title) => {
+    const products = categoriesMap[title];
+
+    return <CategoryPreview key={title} title={title} products={products} />;
+  });
 
   return (
     <Fragment>
       {isLoading ? (
         <Spinner />
+      ) : currentUser ? (
+        categoriesPreviewComponent
       ) : (
-        currentUser ? categoriesPreviewComponent : <Authentication/>
+        <Authentication />
       )}
     </Fragment>
   );

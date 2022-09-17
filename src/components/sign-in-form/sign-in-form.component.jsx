@@ -20,12 +20,13 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
     // saving the user in the Firestore happens in the userReducer
     await signInWithGooglePopup();
-    navigate(window.location.pathname)
+    console.log(window.location.pathname);
+    window.location.pathname === "/auth" ? navigate("/") : navigate(window.location.pathname)
   };
 
   const submitHandler = async (event) => {
@@ -33,11 +34,8 @@ const SignInForm = () => {
 
     try {
       // getting user object
-      await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      navigate(window.location.pathname)
+      await signInAuthUserWithEmailAndPassword(email, password);
+      window.location.pathname === "/auth" ? navigate("/") : navigate(window.location.pathname)
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -81,10 +79,10 @@ const SignInForm = () => {
           onChange={changeHandler}
         />
         <div className="buttons-container">
-          <Button type="submit" onClick={signInAuthUserWithEmailAndPassword}>
+          <Button type="submit" onClick={signInAuthUserWithEmailAndPassword} style={{ width: "50%" }}>
             Sign In
           </Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
+          <Button type="button" buttonType="google" onClick={signInWithGoogle} style={{ width: "50%" }} >
             Google Sign In
           </Button>
         </div>

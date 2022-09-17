@@ -6,7 +6,7 @@ const CategoryItem = ({ category }) => {
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate(`shop/${title}`  )} className="category-container">
+    <div onClick={() => navigate(`shop/${title}`)} className="category-container">
       <div
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
