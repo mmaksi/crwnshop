@@ -25,7 +25,6 @@ const App = () => {
       }
       dispatch(setCurrentUserAction(user))
     })
-
     // runs whenever component unmounts
     return unsubscribe
   }, [dispatch])

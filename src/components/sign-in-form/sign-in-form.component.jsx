@@ -47,7 +47,7 @@ const SignInForm = () => {
           alert("No user associated with this email");
           break;
         default:
-          console.log("user sign in failed", error);
+          alert("user sign in failed");
           break;
       }
     }

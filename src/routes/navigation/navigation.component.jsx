@@ -17,8 +17,8 @@ const Navigation = () => {
   
   const navigate = useNavigate()
 
-  const signOutHandler = () => {
-    signOutUser();
+  const signOutHandler = async () => {
+    await signOutUser();
     navigate("/")
   }
 
