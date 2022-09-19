@@ -1,11 +1,15 @@
+// Custom components
+import Button from "../button/button.component";
+
+// Packages imports
 import { useState } from "react";
 import { useSelector } from "react-redux"
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
-import "./payment-form.styles.scss"
+// Styled components
+import { Container, Form } from "./payment-form.styles.js"
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -54,13 +58,13 @@ const PaymentForm = () => {
   };
 
   return (
-    <div className="payment-form-container">
-      <form className="form-container" onSubmit={paymentHandler}>
+    <Container>
+      <Form onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
         <CardElement />
-        <Button classes="payment-button" isLoading={isProcessingPayment} buttonType={BUTTON_TYPE_CLASSES.inverted}>PAY NOW</Button>
-      </form>
-    </div>
+        <Button payment="payment" isLoading={isProcessingPayment} buttonType="payment">PAY NOW</Button>
+      </Form>
+    </Container>
   );
 };
 

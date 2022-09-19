@@ -1,16 +1,16 @@
-import React from "react";
-
+// Files imports
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 
-import "./authentication.styles.scss"
+// Styled components
+import { Container } from "./authentication.styles.js"
 
 const Authentication = () => {
   return (
-    <div className="authentication-container">
+    <Container>
       <SignUpForm />
       <SignInForm />
-    </div>
+    </Container>
   );
 };
 

@@ -1,9 +1,15 @@
+// Packages imports
 import { useDispatch, useSelector } from "react-redux"
+
+// Files imports
 import { addItemToCart } from "../../store/cart/cart.action"
 import { selectCartItems } from "../../store/cart/cart.selector"
 
+// Custom components
 import Button from "../button/button.component"
-import "./product-card.style.scss"
+
+// Styled components
+import { Container, Footer, Name, Price } from "./product-card.styles.js"
 
 const ProductCard = ( {product} ) => {
     const { name, price, imageUrl } = product
@@ -15,14 +21,14 @@ const ProductCard = ( {product} ) => {
     }
 
   return (
-    <div className="product-card-container">
-      <img src={imageUrl} alt="productImage" />
-      <div className="footer">
-        <span className="name">{name}</span>
-        <span className="price">{price}</span>
-      </div>
+    <Container>
+      <img src={imageUrl} alt={name} />
+      <Footer>
+        <Name>{name}</Name>
+        <Price>{price}</Price>
+      </Footer>
       <Button onClick={addToCartHandler} buttonType="inverted">Add to card</Button>
-    </div>
+    </Container>
   )
 }
 

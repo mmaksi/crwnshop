@@ -1,6 +1,7 @@
-import { Fragment } from "react";
+// Packages imports
 import { useSelector } from "react-redux";
 
+// Files imports
 import CategoryPreview from "../../components/category-preview/category-preview.component";
 import Authentication from "../authentication/authentication.component";
 import Spinner from "../../components/spinner/spinner.component";
@@ -22,7 +23,7 @@ const CategoriesPreview = () => {
   });
 
   return (
-    <Fragment>
+    <>
       {isLoading ? (
         <Spinner />
       ) : currentUser ? (
@@ -30,7 +31,7 @@ const CategoriesPreview = () => {
       ) : (
         <Authentication />
       )}
-    </Fragment>
+    </>
   );
 };
 

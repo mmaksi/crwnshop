@@ -1,25 +1,26 @@
-import "./button.styles.scss";
+// Styled components
+import { BaseButton, GoogleSignInButton, InvertedButton, PaymentButton } from "./button.styles";
 
-export const BUTTON_TYPE_CLASSES = {
-  google: "google-sign-in",
-  inverted: "inverted",
+const getButton = (buttonType = "base") => {
+  return {
+    base: BaseButton,
+    google: GoogleSignInButton,
+    inverted: InvertedButton,
+    payment: PaymentButton
+  }[buttonType];
 };
 
-const Button = ({
-  children,
-  buttonType,
-  classes,
-  isLoading,
-  ...otherProps
-}) => {
+const Button = ({ children, buttonType, classes, isLoading, ...otherProps }) => {
+  const CustomButton = getButton(buttonType);
+  
   return (
-    <button
+    <CustomButton
       disabled={isLoading}
-      className={`button-container ${classes} ${BUTTON_TYPE_CLASSES[buttonType]}`}
+      className={`${classes}}`}
       {...otherProps}
     >
       {children}
-    </button>
+    </CustomButton>
   );
 };
 

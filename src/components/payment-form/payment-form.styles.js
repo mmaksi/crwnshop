@@ -1,4 +1,6 @@
-.payment-form-container {
+import styled from "styled-components";
+
+export const Container = styled.div`
   width: 100%;
   margin: 1rem 0 4rem 0;
   display: flex;
@@ -10,14 +12,8 @@
   @media screen and (max-width: 800px) {
     font-size: 1rem;
   }
-}
+`
 
-.form-container {
+export const Form = styled.form`
   width: 100%;
-}
-
-.payment-button {
-  margin-left: auto;
-  margin-top: 30px;
-  padding: 0 calc(2rem - 1px); // 2rem is the width of the total button, 1px border for inverted button
-}
+`

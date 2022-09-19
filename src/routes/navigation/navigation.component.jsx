@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+// Packages imports
 import { useSelector } from "react-redux";
-
 import { Outlet, Link, useNavigate } from "react-router-dom";
+
+// Files imports
 import { ReactComponent as CrwnLogo } from "../../assets/crwn.svg";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
@@ -9,7 +10,8 @@ import { selectCartIsOpen } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
-import "./navigation.styles.scss";
+// Styled components
+import { NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from "./navigation.styles.js";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -23,32 +25,32 @@ const Navigation = () => {
   }
 
   return (
-    <Fragment>
-      <div className="navigation">
-        <header className="logo-container">
+    <>
+      <NavigationContainer className="navigation">
+        <LogoContainer>
           <Link to="/">
             <CrwnLogo className="logo" />
           </Link>
-        </header>
-        <nav className="nav-links-container">
-          <Link className="nav-link" to="/shop">
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink to="/shop">
             SHOP
-          </Link>
+          </NavLink>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutHandler}>
+            <NavLink as="span" onClick={signOutHandler}>
               SIGN OUT
-            </span>
+            </NavLink>
           ) : (
-            <Link className="nav-link" to={"/auth"}>
+            <NavLink to={"/auth"}>
               SIGN IN
-            </Link>
+            </NavLink>
           )}
           <CartIcon />
-        </nav>
+        </NavLinksContainer>
         {cartIsOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
-    </Fragment>
+    </>
   );
 };
 

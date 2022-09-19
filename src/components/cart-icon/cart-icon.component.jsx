@@ -1,8 +1,12 @@
+// Packages imports
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
+
+// Files imports
 import { setCartIsOpen } from '../../store/cart/cart.action';
 import { selectCartCount, selectCartIsOpen } from '../../store/cart/cart.selector';
-import "./cart-icon.styles.scss"
+
+// Styled components
+import { CartIconContainer, ShoppingIcon, ItemCount } from "./cart-icon.styles.js"
 
 const CartIcon = () => {
   const dispatch = useDispatch()
@@ -12,10 +16,10 @@ const CartIcon = () => {
   const toggleOpenCart = () => dispatch(setCartIsOpen(!cartIsOpen))
 
   return (
-    <div className='cart-icon-container' onClick={toggleOpenCart}>
-      <ShoppingIcon className='shopping-icon' />
-      <span className='item-count'>{cartCount}</span>
-    </div>
+    <CartIconContainer onClick={toggleOpenCart}>
+      <ShoppingIcon />
+      <ItemCount>{cartCount}</ItemCount>
+    </CartIconContainer>
   );
 };
 

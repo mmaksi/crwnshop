@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+// Files imports
 import Directory from "../../components/directory/directory.component";
 
 const categories = [
@@ -30,12 +30,7 @@ const categories = [
 ];
 
 const Home = () => {
-
-  return (
-    <Fragment>
-      <Directory categories={categories} />
-    </Fragment>
-  );
+  return <Directory categories={categories} />;
 };
 
 export default Home;

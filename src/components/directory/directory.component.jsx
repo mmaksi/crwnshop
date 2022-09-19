@@ -1,14 +1,16 @@
-import React from "react";
-import CategoryItem from "../category-item/category-item.component";
-import "./directory.styles.scss"
+// Custom components
+import CategoryItem from "../directory-item/directory-item.component";
+
+// Styled components
+import { Container } from "./directory.styles.js"
 
 const Directory = ({categories}) => {
   return (
-    <div className="directory-container">
+    <Container>
       {categories.map((category) => (
         <CategoryItem key={category.id} category={category} />
       ))}
-    </div>
+    </Container>
   );
 };
 

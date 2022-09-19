@@ -1,11 +1,17 @@
+// Packages imports
 import { useDispatch, useSelector } from "react-redux"
 import {useNavigate} from "react-router-dom"
+
+// Files imports
 import { setCartIsOpen } from "../../store/cart/cart.action";
 import { selectCartIsOpen, selectCartItems } from "../../store/cart/cart.selector";
+
+// Custom components
 import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
 
-import "./cart-dropdown.styles.scss";
+// Styled components
+import { DropdownContainer, CartItems, EmptyMessage } from "./cart-dropdown.styles.js";
 
 const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems)
@@ -19,14 +25,14 @@ const CartDropdown = () => {
   }
 
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">
+    <DropdownContainer>
+      <CartItems>
         {cartItems.length ? (
           cartItems.map((cartItem) => <CartItem key={cartItem.id} cartItem={cartItem} /> )
-        ) : (<span className="empty-message">Your cart is empty</span>)}      
-      </div>
+        ) : (<EmptyMessage>Your cart is empty</EmptyMessage>)}      
+      </CartItems>
       <Button onClick={checkoutHandler}>GO TO CHECKOUT</Button>
-    </div>
+    </DropdownContainer>
   );
 };
 
