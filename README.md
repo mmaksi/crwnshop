@@ -46,6 +46,13 @@ Any component that import `useContext` will make its function rerun whenever any
 - Sagas can fire actions that pass through the typical middlewares and reducers and then pass through sagas again.
 - The state inside sagas is the updated state because they have already hit the reducers.
 - Just like there is a **Root Reducer**, there is a **Root Saga** that combines all sagas.
+- In each Saga file we have mainly 3 parts:
+    1. The main sagas function that holds all generators related to that specific saga.
+    2. Entry saga(s) function generator(s) that listens to actions using the `take ()` method and respond to them.
+    3. The respond generator function that will be passed as a response to the action.
+
+![redux-saga-data-flow-diagram](https://i.ibb.co/2KKJPBr/Redux-saga-min.png)
+
 
 ### Observer Pattern
 A stream is a **observable** sequence of **asynchronous events**. E.g: mouse clicks. We don't know when the user will click or how many times the user will click or even the time difference between each click.
