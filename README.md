@@ -62,3 +62,7 @@ We interact with the stream with a class that has 3 methods:
 3. complete: () => { // do something when the the stream stops }
 We don't trigger or call these methods manually. Usually the observer stream revokes these methods on the listener that is subscribed to them.
 Subscribers to the stream cannot listen to past events that happened before their subscribtion.
+
+### TypeScript with React
+- `ChangeEventHandler` is a function definition from React
+- Types can take *type parameters*: `ChangeEventHandler<T = ELement>`. This parameter is a type that is used inside its own type definition.

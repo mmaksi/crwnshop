@@ -7,7 +7,7 @@ import {
 } from "./categories.action";
 import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 
-import CATEGORIES_ACTION_TYPES from "./categories.types";
+import { CATEGORIES_ACTION_TYPES } from "./categories.types";
 
 // The respond generator
 export function* fetchCategoriesStartAsync() {
