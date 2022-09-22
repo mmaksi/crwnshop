@@ -1,15 +1,14 @@
 # Crwn Shop
 ## Features
-- React
+- React & TypeScript
 - React Router
-- Redux
+- Redux with TypeScript
 - Redux Thunk
 - Redux Saga
 - Firebase & Firestore
 - Stripe API
 - Styled Components
 - GraphQL
-- TypeScript
 
 This is an e-commerce React web app that handles user authentication with the ability to show products of multiple categories, adding them to the cart with a checkout page to add/remove cart items before submitting the purchase order using Stripe API.
 [See Live](https://ecomclothing.netlify.app/)
@@ -64,5 +63,30 @@ We don't trigger or call these methods manually. Usually the observer stream rev
 Subscribers to the stream cannot listen to past events that happened before their subscribtion.
 
 ### TypeScript with React
-- `ChangeEventHandler` is a function definition from React
-- Types can take *type parameters*: `ChangeEventHandler<T = ELement>`. This parameter is a type that is used inside its own type definition.
+- `ChangeEventHandler` is a **function definition** from React
+- Types can take **type parameters**: `ChangeEventHandler<T = ELement>`. This parameter is a type that is used inside its own type definition.
+- **Type Predicate** is acustom _Type Guard_ technique. Type predicates are always attached to a function that takes a single argument and returns a boolean to verify the argument is a narrower type. Type predicates are expressed as `argumentName is Type`.
+```
+type Human = { speak: () => {} }
+type Alien = { fly: () -> {} }
+
+function isHuman(entity: Human | Alien): entity is Human {
+    retutn (entity as Human).speak() !== undefined
+}
+```
+
+- **Intersection** gets the intersection of two types:
+```
+type Human = { speak: () => {} }
+type Alien = { fly: () -> {} }
+type Entity = Human & Alien
+
+const josh: Entity
+josh.fly() // no errors
+josh.speak() // no errors
+```
+
+- **ReturnType** Constructs a type consisting of the return type of function `Type`.
+```
+type MyReturn = ReturnType<MyType>
+```
