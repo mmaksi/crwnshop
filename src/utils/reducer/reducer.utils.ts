@@ -6,7 +6,7 @@ type AC2 = (...arg: any[]) => AnyAction & { type: string };
 
 type Matchable = AC & {
   type: ReturnType<AC>["type"];
-  match(action: AnyAction): action is ReturnType<AC>; // Predicate function
+  match(action: AnyAction): action is ReturnType<AC | AC2>; // Predicate function
 };
 
 // Function overloads
